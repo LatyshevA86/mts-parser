@@ -27,8 +27,8 @@ public class RatesParser extends BaseParser {
                     .getElementsByClass("card-description").text();
             String benefits = card
                     .getElementsByClass("benefits-description").text();
-            int price = Integer.parseInt(card
-                    .getElementsByClass("price-text").first().text().replace(" ", ""));
+            String price = card
+                    .getElementsByClass("price-text").first().text();
             String detailsLink = card
                     .getElementsByClass("btn universal-card-button btn_secondary").attr("href");
             List<String> features = card

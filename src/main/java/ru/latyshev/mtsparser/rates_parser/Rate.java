@@ -1,30 +1,26 @@
 package ru.latyshev.mtsparser.rates_parser;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@Entity
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Rate {
-    String title;
-    String cardDescription;
-    String trafficLimit;
-    String callsLimit;
-    String connectionSpeed;
-    String tvChannels;
-    String benefits;
-    int price;
-    String detailsLink;
-
-    public Rate(String title, String cardDescription, String trafficLimit, String callsLimit, String connectionSpeed, String tvChannels, String benefits, int price, String detailsLink) {
-        this.title = title;
-        this.cardDescription = cardDescription;
-        this.trafficLimit = trafficLimit;
-        this.callsLimit = callsLimit;
-        this.connectionSpeed = connectionSpeed;
-        this.tvChannels = tvChannels;
-        this.benefits = benefits;
-        this.price = price;
-        this.detailsLink = detailsLink;
-    }
+    @Id
+    private String title;
+    private String cardDescription;
+    private String trafficLimit;
+    private String callsLimit;
+    private String connectionSpeed;
+    private String tvChannels;
+    private String benefits;
+    private String price;
+    private String detailsLink;
 
     @Override
     public String toString() {

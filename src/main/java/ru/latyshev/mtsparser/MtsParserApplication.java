@@ -5,10 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MtsParserApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(MtsParserApplication.class, args);
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 	}
 
 }
