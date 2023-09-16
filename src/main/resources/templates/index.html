@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MTS rates</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center row-gap-3">
+    <h1>List of rates MTS Moscow</h1>
+    <div class="row align-items-center mb-1 border border-danger">
+        <div class="col-3 p-2"><h5><b>Название тарифа</b></h5></div>
+        <div class="col p-2"><h5><b>Интернет</b></h5></div>
+        <div class="col p-2"><h5><b>Звонки</b></h5></div>
+        <div class="col p-2"><h5><b>Скорость</b></h5></div>
+        <div class="col p-2"><h5><b>ТВ каналы</b></h5></div>
+        <div class="col-3 p-2"><h5><b>Преимущества</b></h5></div>
+        <div class="col p-2"><h5><b>Цена</b></h5></div>
+        <div class="col p-2"><h5><b>Ссылка</b></h5></div>
+    </div>
+    <div class="row align-items-center mb-1 border border-danger" th:each="rate : ${rates}">
+        <div class="col-3 p-2" th:text="${rate.getTitle()}"></div>
+        <div class="col p-2" th:text="${rate.getTrafficLimit()}"></div>
+        <div class="col p-2" th:text="${rate.getCallsLimit()}"></div>
+        <div class="col p-2" th:text="${rate.getConnectionSpeed()}"></div>
+        <div class="col p-2" th:text="${rate.getTvChannels()}"></div>
+        <div class="col-3 p-2" th:text="${rate.getBenefits()}"></div>
+        <div class="col p-2" th:text="${rate.getPrice()}"></div>
+        <div class="col p-2">
+            <a type="button"
+               th:href="${rate.getDetailsLink()}" class="btn btn-danger"
+               data-toggle="button" aria-pressed="false"><b>Подробнее</b>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
