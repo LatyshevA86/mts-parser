@@ -10,34 +10,71 @@
           crossorigin="anonymous">
 </head>
 <body>
-<div class="container text-center row-gap-3">
-    <h1>List of rates MTS Moscow</h1>
-    <div class="row align-items-center mb-1 border border-danger">
-        <div class="col-3 p-2"><h5><b>Название тарифа</b></h5></div>
-        <div class="col p-2"><h5><b>Интернет</b></h5></div>
-        <div class="col p-2"><h5><b>Звонки</b></h5></div>
-        <div class="col p-2"><h5><b>Скорость</b></h5></div>
-        <div class="col p-2"><h5><b>ТВ каналы</b></h5></div>
-        <div class="col-3 p-2"><h5><b>Преимущества</b></h5></div>
-        <div class="col p-2"><h5><b>Цена</b></h5></div>
-        <div class="col p-2"><h5><b>Ссылка</b></h5></div>
-    </div>
-    <div class="row align-items-center mb-1 border border-danger" th:each="rate : ${rates}">
-        <div class="col-3 p-2" th:text="${rate.getTitle()}"></div>
-        <div class="col p-2" th:text="${rate.getTrafficLimit()}"></div>
-        <div class="col p-2" th:text="${rate.getCallsLimit()}"></div>
-        <div class="col p-2" th:text="${rate.getConnectionSpeed()}"></div>
-        <div class="col p-2" th:text="${rate.getTvChannels()}"></div>
-        <div class="col-3 p-2" th:text="${rate.getBenefits()}"></div>
-        <div class="col p-2" th:text="${rate.getPrice()}"></div>
-        <div class="col p-2">
-            <a type="button"
-               th:href="${rate.getDetailsLink()}" class="btn btn-danger" target="_blank"
-               data-toggle="button" aria-pressed="false"><b>Подробнее</b>
-            </a>
+    <div class="container text-center">
+        <h1>List of rates MTS Moscow</h1>
+        <div class="row align-items-center mb-1 border border-danger">
+            <div class="col-3 p-2"><h6><b>Название тарифа</b></h6></div>
+            <div class="col p-2 dropdown">
+                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Интернет</b></h6>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">по убыванию</a></li>
+                    <li><a class="dropdown-item">по возрастанию</a></li>
+                </ul>
+            </div>
+            <div class="col p-2 dropdown">
+                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Звонки</b></h6>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">по убыванию</a></li>
+                    <li><a class="dropdown-item">по возрастанию</a></li>
+                </ul>
+            </div>
+            <div class="col p-2 dropdown">
+                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Скорость</b></h6>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">по убыванию</a></li>
+                    <li><a class="dropdown-item">по возрастанию</a></li>
+                </ul>
+            </div>
+            <div class="col p-2 dropdown">
+                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>ТВ каналы</b></h6>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">по убыванию</a></li>
+                    <li><a class="dropdown-item">по возрастанию</a></li>
+                </ul>
+            </div>
+            <div class="col-3 p-2"><h6><b>Преимущества</b></h6></div>
+            <div class="col p-2 dropdown">
+                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Цена</b></h6>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">по убыванию</a></li>
+                    <li><a class="dropdown-item">по возрастанию</a></li>
+                </ul>
+            </div>
+            <div class="col p-2"><h6><b>Ссылка</b></h6></div>
+        </div>
+        <div class="row align-items-center mb-1 border border-danger" th:each="rate : ${rates}">
+            <div class="col-3 p-2" style="font-size:15px" th:text="${rate.getTitle()}"></div>
+            <div class="col p-2" style="font-size:15px" th:text="${rate.getTrafficLimit()}"></div>
+            <div class="col p-2" style="font-size:15px" th:text="${rate.getCallsLimit()}"></div>
+            <div class="col p-2" style="font-size:15px" th:text="${rate.getConnectionSpeed()}"></div>
+            <div class="col p-2" style="font-size:15px" th:text="${rate.getTvChannels()}"></div>
+            <div class="col-3 p-2" style="font-size:12px" th:text="${rate.getBenefits()}"></div>
+            <div class="col p-2" style="font-size:15px" th:text="${rate.getPrice()}"></div>
+            <div class="col p-2" style="font-size:15px">
+                <a th:href="${rate.getDetailsLink()}" target="_blank"><b>Подробнее</b></a>
+            </div>
+        </div>
+        <br>
+        <div class="row align-items-center">
+            <div class="col">
+                <form method="POST" th:action="@{/}">
+                    <button type="submit" class="btn btn-danger btn-lg" style="width: 300px">Парсить</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

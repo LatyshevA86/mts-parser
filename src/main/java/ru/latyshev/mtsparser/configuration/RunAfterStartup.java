@@ -18,7 +18,6 @@ public class RunAfterStartup{
     public void runAfterStartup() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         List<Rate> rates = new RatesParser().getRatesFromPage();
-//        rates.forEach(System.out::println);
         rates.forEach(rate -> repo.save(rate));
     }
 }
