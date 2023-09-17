@@ -11,7 +11,26 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1>List of rates MTS Moscow</h1>
+        <div class="row align-items-center">
+            <div class="col"><h1>Тарифы МТС Москва</h1></div>
+            <div class="col">
+                <form th:action="@{/sort}" th:object="${comparator}" method="post">
+                    <select name="comparator">
+                        <option value="cheapPrice">сначала дешевые </option>
+                        <option value="highSpeed">высокая скорость</option>
+                        <option value="moreTraffic">больше интернета</option>
+                        <option value="moreCalls">больше минут</option>
+                        <option value="moreTvChannels">больше ТВ каналов</option>
+                        <option value="highPrice">сначала дорогие</option>
+                        <option value="lowSpeed">низкая скорость</option>
+                        <option value="lessCalls">меньше минут</option>
+                        <option value="lessTraffic">меньше интернета</option>
+                        <option value="lessTvChannels">меньше ТВ каналов</option>
+                    </select>
+                    <input type="submit" value="Сортировать">
+                </form>
+            </div>
+        </div>
         <div class="row align-items-center mb-1 border border-danger">
             <div class="col-3 p-2"><h6><b>Название тарифа</b></h6></div>
             <div class="col p-2"><h6><b>Интернет</b></h6></div>
@@ -36,23 +55,6 @@
         </div>
         <br>
         <div class="row align-items-center">
-            <div class="col">
-                <form th:action="@{/sort}" th:object="${comparator}" method="post">
-                    <select name="comparator">
-                        <option value="cheapPrice">сначала дешевые </option>
-                        <option value="highSpeed">высокая скорость</option>
-                        <option value="moreTraffic">больше интернета</option>
-                        <option value="moreCalls">больше минут</option>
-                        <option value="moreTvChannels">больше ТВ каналов</option>
-                        <option value="highPrice">сначала дорогие</option>
-                        <option value="lowSpeed">низкая скорость</option>
-                        <option value="lessCalls">меньше минут</option>
-                        <option value="lessTraffic">меньше интернета</option>
-                        <option value="lessTvChannels">меньше ТВ каналов</option>
-                    </select>
-                    <input type="submit" value="Сортировать">
-                </form>
-            </div>
             <div class="col">
                 <form th:action="@{/}" method="post">
                     <button type="submit" class="btn btn-danger" style="width: 300px">Парсить</button>
