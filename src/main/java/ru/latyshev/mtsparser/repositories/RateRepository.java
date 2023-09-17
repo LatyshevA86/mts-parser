@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.latyshev.mtsparser.rates_parser.Rate;
 
 @Repository
-public interface RateRepositiry extends CrudRepository<Rate, String> {
+public interface RateRepository extends CrudRepository<Rate, String> {
 }

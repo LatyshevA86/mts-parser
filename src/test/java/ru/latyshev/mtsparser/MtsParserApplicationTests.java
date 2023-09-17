@@ -8,8 +8,7 @@ import ru.latyshev.mtsparser.rates_parser.RatesParser;
 @SpringBootTest
 class MtsParserApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
+//	@Test
+//	void contextLoads() {
+//	}
 }

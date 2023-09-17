@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+/** Main parsing entity
+ */
 @Entity
 @RequiredArgsConstructor
 @AllArgsConstructor

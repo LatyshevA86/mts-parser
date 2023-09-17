@@ -14,13 +14,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/** Main parse class, uses Jsoup
+ */
 public class RatesParser extends BaseParser {
     public List<Rate> getRatesFromPage(){
         List<Rate> rates = new ArrayList<>();
         try {
+            // getting rate elements
             Document doc = Jsoup.parse(new RatesPage().getHtmlSource());
             Elements cards = doc.getElementsByTag("mts-tariff-card");
 
+            // creating main class objects
             for (Element card : cards) {
                 String title = card
                         .getElementsByClass("card-title__link").text();
@@ -71,10 +75,13 @@ public class RatesParser extends BaseParser {
                                 ? "https://moskva.mts.ru" + detailsLink : RatesPage.URL));
             }
         } catch (NullPointerException e) {
+            // invoke the method again until we get the exception
+            // TODO check Selenium waiting properties
             getRatesFromPage();
         }
 
-        //TODO after aspect
+        // parent method to close web driver
+        // TODO use aspect to invoke after html source getting method or can we use after button click?
         tearDown();
         return rates;
     }

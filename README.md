@@ -1,6 +1,6 @@
 # Mts parser
 ### Test task for MTS week offer
-Fares parser with using Selenium, Jsoup, H2 database, JPA and Spring boot
+Fares parser project with using Selenium, Jsoup, H2 database, JPA and Spring boot
 
 ### ToDo:
 1. refactor price parsing to add measure and then fix price comparators
