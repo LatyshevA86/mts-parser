@@ -14,42 +14,12 @@
         <h1>List of rates MTS Moscow</h1>
         <div class="row align-items-center mb-1 border border-danger">
             <div class="col-3 p-2"><h6><b>Название тарифа</b></h6></div>
-            <div class="col p-2 dropdown">
-                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Интернет</b></h6>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">по убыванию</a></li>
-                    <li><a class="dropdown-item">по возрастанию</a></li>
-                </ul>
-            </div>
-            <div class="col p-2 dropdown">
-                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Звонки</b></h6>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">по убыванию</a></li>
-                    <li><a class="dropdown-item">по возрастанию</a></li>
-                </ul>
-            </div>
-            <div class="col p-2 dropdown">
-                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Скорость</b></h6>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">по убыванию</a></li>
-                    <li><a class="dropdown-item">по возрастанию</a></li>
-                </ul>
-            </div>
-            <div class="col p-2 dropdown">
-                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>ТВ каналы</b></h6>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">по убыванию</a></li>
-                    <li><a class="dropdown-item">по возрастанию</a></li>
-                </ul>
-            </div>
+            <div class="col p-2"><h6><b>Интернет</b></h6></div>
+            <div class="col p-2"><h6><b>Звонки</b></h6></div>
+            <div class="col p-2"><h6><b>Скорость</b></h6></div>
+            <div class="col p-2"><h6><b>ТВ каналы</b></h6></div>
             <div class="col-3 p-2"><h6><b>Преимущества</b></h6></div>
-            <div class="col p-2 dropdown">
-                <h6 class="dropdown-toggle" data-bs-toggle="dropdown"><b>Цена</b></h6>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">по убыванию</a></li>
-                    <li><a class="dropdown-item">по возрастанию</a></li>
-                </ul>
-            </div>
+            <div class="col p-2"><h6><b>Цена</b></h6></div>
             <div class="col p-2"><h6><b>Ссылка</b></h6></div>
         </div>
         <div class="row align-items-center mb-1 border border-danger" th:each="rate : ${rates}">
@@ -67,13 +37,29 @@
         <br>
         <div class="row align-items-center">
             <div class="col">
-                <form method="POST" th:action="@{/}">
-                    <button type="submit" class="btn btn-danger btn-lg" style="width: 300px">Парсить</button>
+                <form th:action="@{/sort}" th:object="${comparator}" method="post">
+                    <select name="comparator">
+                        <option value="cheapPrice">сначала дешевые </option>
+                        <option value="highSpeed">высокая скорость</option>
+                        <option value="moreTraffic">больше интернета</option>
+                        <option value="moreCalls">больше минут</option>
+                        <option value="moreTvChannels">больше ТВ каналов</option>
+                        <option value="highPrice">сначала дорогие</option>
+                        <option value="lowSpeed">низкая скорость</option>
+                        <option value="lessCalls">меньше минут</option>
+                        <option value="lessTraffic">меньше интернета</option>
+                        <option value="lessTvChannels">меньше ТВ каналов</option>
+                    </select>
+                    <input type="submit" value="Сортировать">
+                </form>
+            </div>
+            <div class="col">
+                <form th:action="@{/}" method="post">
+                    <button type="submit" class="btn btn-danger" style="width: 300px">Парсить</button>
                 </form>
             </div>
         </div>
     </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

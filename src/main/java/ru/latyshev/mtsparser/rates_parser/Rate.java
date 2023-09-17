@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Data
 @Entity
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -35,5 +34,41 @@ public class Rate {
                 ", price=" + price +
                 ", detailsLink='" + detailsLink + '\'' +
                 '}';
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCardDescription() {
+        return cardDescription;
+    }
+
+    public String getTrafficLimit() {
+        return trafficLimit;
+    }
+
+    public String getCallsLimit() {
+        return callsLimit;
+    }
+
+    public String getConnectionSpeed() {
+        return connectionSpeed;
+    }
+
+    public String getTvChannels() {
+        return tvChannels;
+    }
+
+    public String getBenefits() {
+        return benefits;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getDetailsLink() {
+        return detailsLink;
     }
 }
